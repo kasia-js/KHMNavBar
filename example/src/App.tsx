@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { NavBar } from 'j'
+import { NavBar } from '../../src/NavBar'
+
 import 'j/dist/index.css'
 // import {Options} from ''
 export interface Options {

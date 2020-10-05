@@ -187,7 +187,7 @@ export const NavBar = (props: Props) => {
 
   return (
     <BrowserRouter>
-      <div>
+      <div data-testId='navbar99'>
         {props.option === 'horizontal' && props.orientation === 'ltr' && (
           <div className='navbarH'>
             <nav>
