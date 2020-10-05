@@ -1,9 +1,201 @@
 /* add css module styles here (optional) */
+* {
+  box-sizing: border-box;
+}
 
-.test {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
-  text-align: center;
+.navBarH {
+  display: flex;
+
+}
+
+.menuitemH {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  color:white;
+  font-weight:bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color:slategray;
+  /*position: relative;*/
+}
+
+.searchBarH {
+height: 40px;
+margin-top: 10px;
+}
+
+.searchBarHInput {
+  border-radius: 5px;
+}
+
+.menuitemHRTL {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  color:white;
+  font-weight:bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color:slategray;
+  /*position: relative;*/
+}
+
+.menuitemH li
+ {
+  display: inline-block;
+ /* position: relative;*/
+  padding: 10px 20px 20px 20px;
+  }
+
+  .menuitemHRTL li
+ {
+  display: inline-block;
+ /* position: relative;*/
+  padding: 10px 20px 20px 20px;
+  }
+
+  .navBarV {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menuitemV {
+    height: 100vh;
+    width: fit-content;
+    margin: 0px 100px 20px 20px;
+    display: flex;
+    float:left;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+    font-weight:bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color:black;
+  padding: 25px 25px 25px 25px;
+  list-style: outside none none;
+  }
+  .searchBarV {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+   .formsubmit {
+     border: 1px solid black;
+     border-radius: 5px;
+   }
+
+
+  .menuitemV li {
+    display: inline-block;
+    position:relative;
+    padding: 10px 0px 20px 0px;
+    }
+
+  .menuitemVRTL {
+    height: 500px;
+    width: 20%;
+    margin: 50px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color:white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 20px 20px 20px;
+    background-color: lightgrey;
+    float: right;
+  }
+
+  ul li:hover {
+      background-color: grey;
+  }
+
+  .menuitemNestedV {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    color: black;
+    border-radius: 1px;
+    padding: 10px 10px 10px 10px;
+    margin-top: 10px;
+    background-color:lightgray;
+
+  }
+
+  .menuitemNestedVRTL {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 0px 10px 0px;
+    background-color: yellow;
+  }
+
+
+
+  .menuitemVRTL li {
+    display: inline-block;
+    padding: 10px 0px 20px 0px;
+    }
+
+    .menuitemNestedH {
+      height: fit-content;
+      width: fit-content;
+      display: flex;
+      flex-direction: row;
+      align-self: flex-start;
+      color: black;
+      border-radius: 1px;
+      padding: 10px 20px 10px 0px;
+      margin-top: 10px;
+      margin-left: 25px;
+      background-color: gainsboro;
+      left:100%;
+      top:0;
+      z-index: 9999;
+      transition: all 0.5s ease 0s;
+    }
+
+.menuitemNestedH li {
+  display:inline-block;
+}
+
+.dropdownContent {
+  display:none;
+  position: absolute;
+  color: red;
+  background-color: lightgray;
+}
+
+.dropdown-content ul li:hover {
+  background-color: lightgray;
+}
+
+.nav_title:hover .ul_child {
+  display: block !important;
+}
+.nav_title .ul_child {
+  display: none !important;
 }

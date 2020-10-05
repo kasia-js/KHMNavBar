@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
  //loader for jpeg files
 // const searchIcon = require('../../assets/searchIcon.png')
 // import './styles.scss'
-import {BrowserRouter} from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 interface Props {
   orientation: string
   lang?: string
