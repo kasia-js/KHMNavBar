@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { NavBar } from '.'
 import { screen, render } from '@testing-library/react'
-import { act } from "react-dom/test-utils";
 import '@testing-library/jest-dom/extend-expect'
 
 interface Options {
@@ -41,30 +40,28 @@ const mockProps: Props = {
       children: [],
       path: '/about'
     }
-  ],
+  ]
 }
 
 // Hamed 💩
 
 describe('NavBar', () => {
-  
-  it("has child nodes", () => {
+  it('has child nodes', () => {
     render(<NavBar {...mockProps} />)
     expect(screen.getByTestId('navbar-h').hasChildNodes()).toBeTruthy()
   })
 
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<NavBar {...mockProps} />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    const div = document.createElement('div')
+    ReactDOM.render(<NavBar {...mockProps} />, div)
+    ReactDOM.unmountComponentAtNode(div)
   })
 
   // it('should expect props to be passed in to component', () => {
   //   render(<NavBar {...mockProps} />);
-    // const wrapper = shallow(
-    // <NavBar {...mockProps} orientation="rtl" option="horizontal" />
-    // );
-
+  // const wrapper = shallow(
+  // <NavBar {...mockProps} orientation="rtl" option="horizontal" />
+  // );
   //   expect(wrapper.find(NavBar).prop('orientation')).toBe('rtl');
   //   expect(wrapper.find(NavBar).prop('option')).toBe('horizontal');
   // })
@@ -72,15 +69,15 @@ describe('NavBar', () => {
   it('should display the home button', () => {
     render(<NavBar {...mockProps} />)
     expect(screen.getByTestId('homeBtnId')).toBeInTheDocument()
-  });
+  })
 
   it('Should display Home', () => {
     screen.getByText((content: string) => content.startsWith('Home'))
   })
 
   it('should display a vertical menu if options===vertical', () => {
-    render(<NavBar {...mockProps} />);
-    const vertical = getByTestId('navbarV')
+    render(<NavBar {...mockProps} />)
+    const vertical = screen.getByTestId('navbarV')
     expect(vertical).toHaveStyle(`
       display: flex;
       float:left;
@@ -90,21 +87,18 @@ describe('NavBar', () => {
   })
 
   it('should show sub headers', () => {
-    render(<NavBar {...mockProps} />);
-    mockProps.optionsArray.map(el => {
-      expect(screen.getByText(el.text)).toBeInTheDocument();
+    render(<NavBar {...mockProps} />)
+    mockProps.optionsArray.map((el) => {
+      expect(screen.getByText(el.text)).toBeInTheDocument()
     })
   })
 
   it('should show submenu', () => {
-    render(<NavBar {...mockProps} />);
-    mockProps.optionsArray.map(el => {
-      el.children.map(item => {
-        expect(screen.getByText(item.text)).toBeInTheDocument();
+    render(<NavBar {...mockProps} />)
+    mockProps.optionsArray.map((el) => {
+      el.children.map((item) => {
+        expect(screen.getByText(item.text)).toBeInTheDocument()
       })
     })
   })
-
-
 })
-
