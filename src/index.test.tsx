@@ -37,13 +37,13 @@ const mockProps: Props = {
     {
       id: 1,
       text: 'Home',
-      children: [],
+      children: [{ id: 1, text: 'Contact Info', path: '/info' }],
       path: '/about'
     }
   ]
 }
 
-// Hamed 💩
+
 
 describe('NavBar', () => {
   it('has child nodes', () => {
@@ -71,10 +71,10 @@ describe('NavBar', () => {
   //   expect(wrapper.find(NavBar).prop('option')).toBe('horizontal');
   // })
 
-  it('should display the home button', () => {
-    render(<NavBar {...mockProps} />)
-    expect(screen.getByTestId('homeBtnId')).toBeInTheDocument()
-  })
+  // it('should be the same as snapshot', () => {
+  //   const component = render(<NavBar {...mockProps} />)
+  //   expect(component).toMatchSnapshot()
+  // })
 
   it('Should display Home', () => {
     screen.getByText((content: string) => content.startsWith('Home'))
@@ -107,7 +107,19 @@ describe('NavBar', () => {
     })
   })
 
-  //test props
+  test.only('snapshot', () => {
+    const { container } = render(<NavBar {...mockProps} />)
+    expect(container.firstChild).toMatchSnapshot()
+  })
+
+  test('should show home header', () => {
+    const { getByText } = render(<NavBar {...mockProps} />)
+    // mockProps.optionsArray.map(())
+    const home = getByText(mockProps.optionsArray[0].text)
+    // const home = getByText('home', { exact: false })
+    expect(home).toBeTruthy()
+  })
+
   //test search bar
   //fireEvent - search results with jest.fn
   //hover or click - show submenu
