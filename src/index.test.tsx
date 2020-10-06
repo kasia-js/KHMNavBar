@@ -106,4 +106,10 @@ describe('NavBar', () => {
       })
     })
   })
+
+  //test props
+  //test search bar
+  //fireEvent - search results with jest.fn
+  //hover or click - show submenu
+  //
 })
