@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { NavBar } from '.'
 import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
+import { renderIntoDocument } from 'react-dom/test-utils'
 
 interface Options {
   id: number
@@ -43,8 +44,6 @@ const mockProps: Props = {
   ]
 }
 
-
-
 describe('NavBar', () => {
   it('has child nodes', () => {
     render(<NavBar {...mockProps} />)
@@ -55,11 +54,6 @@ describe('NavBar', () => {
     const div = document.createElement('div')
     ReactDOM.render(<NavBar {...mockProps} />, div)
     ReactDOM.unmountComponentAtNode(div)
-  })
-
-  it('should have a type attribute equals to submit', () => {
-    const button = screen.getByTestId('go-btn')
-    expect(button.hasAttribute('submit'))
   })
 
   // it('should expect props to be passed in to component', () => {
@@ -114,14 +108,37 @@ describe('NavBar', () => {
 
   test('should show home header', () => {
     const { getByText } = render(<NavBar {...mockProps} />)
-    // mockProps.optionsArray.map(())
     const home = getByText(mockProps.optionsArray[0].text)
     // const home = getByText('home', { exact: false })
     expect(home).toBeTruthy()
   })
 
+  it('should have a type attribute equals to submit', () => {
+    const button = screen.getByTestId('go-btn')
+    expect(button.hasAttribute('submit'))
+  })
+
+  test('search bar should display the right search value', () => {
+    render(<input value='hello world'> </input>)
+    expect(screen.getByDisplayValue('hello world')).toBeInTheDocument()
+  })
+
+  test('calls handleSubmit onClick', () => {
+    const handleSubmit = jest.fn()
+    const { container, getByText } = renderIntoDocument(
+      <button onClick={handleSubmit} />
+    )
+    const formNode = container.querySelector('formsubmit')
+    const submitButtonNode = getByText('submit')
+  })
+
+  test('submenu appears', () => {
+    const menueTitle = screen.getByTestId('childrenHeadersId')
+    const mockFn = jest.fn()
+    expect(menueTitle)
+  })
+
   //test search bar
   //fireEvent - search results with jest.fn
   //hover or click - show submenu
-  //
 })
