@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom'
 import { NavBar } from '.'
 import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import { renderIntoDocument } from 'react-dom/test-utils'
+import {
+  renderIntoDocument,
+  Simulate,
+  // ReactTestUtils
+} from 'react-dom/test-utils'
 
 interface Options {
   id: number
@@ -130,15 +134,15 @@ describe('NavBar', () => {
     )
     const formNode = container.querySelector('formsubmit')
     const submitButtonNode = getByText('submit')
+    Simulate.submit(formNode)
+    expect(submitButtonNode.type).toBe('submit')
+
+    expect(handleSubmit).toHaveBeenCalledTimes(1)
   })
 
   test('submenu appears', () => {
     const menueTitle = screen.getByTestId('childrenHeadersId')
-    const mockFn = jest.fn()
-    expect(menueTitle)
+    // const mockFn = jest.fn()
+    // ReactTestUtils.Simulate.click(menueTitle)
   })
-
-  //test search bar
-  //fireEvent - search results with jest.fn
-  //hover or click - show submenu
 })

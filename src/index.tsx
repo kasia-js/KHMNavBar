@@ -76,6 +76,7 @@ export const NavBar = (props: Props) => {
   }
   function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
+    //store value in component and FILTER SOME DATA
     setInput('')
     return (
       <h2>Your Search results are as follows</h2>
