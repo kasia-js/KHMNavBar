@@ -57,6 +57,11 @@ describe('NavBar', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
+  it('should have a type attribute equals to submit', () => {
+    const button = screen.getByTestId('go-btn')
+    expect(button.hasAttribute('submit'))
+  })
+
   // it('should expect props to be passed in to component', () => {
   //   render(<NavBar {...mockProps} />);
   // const wrapper = shallow(
@@ -77,7 +82,7 @@ describe('NavBar', () => {
 
   it('should display a vertical menu if options===vertical', () => {
     render(<NavBar {...mockProps} />)
-    const vertical = screen.getByTestId('navbarV')
+    const vertical = screen.getByTestId('navbar-vertical')
     expect(vertical).toHaveStyle(`
       display: flex;
       float:left;
