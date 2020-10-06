@@ -89,5 +89,13 @@ describe('NavBar', () => {
     `)
   })
 
+  it('should show sub headers', () => {
+    render(<NavBar {...mockProps} />);
+    mockProps.optionsArray.map(el => {
+      expect(screen.getByText(el.text)).toBeInTheDocument();
+    })
+  })
 
+
+})
 
