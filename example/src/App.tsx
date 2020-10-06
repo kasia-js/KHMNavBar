@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { NavBar } from 'j'
-import 'j/dist/index.css'
+import { NavBar } from '../../src/index'
+
+// import 'j/dist/index.css'
 // import {Options} from ''
 export interface Options {
   id: number
@@ -36,9 +37,7 @@ const optionsArray : Options[] = [
 const App = () => {
 
   return <NavBar optionsArray={optionsArray}  option = "horizontal"  orientation = "ltr" theme="slategrey" search = "search"/>
-  
-  
-  
+
 
 }
 

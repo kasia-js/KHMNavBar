@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 // const searchIcon = require('../../assets/searchIcon.png')
 // import './styles.scss'
 import { BrowserRouter } from 'react-router-dom';
+
 interface Props {
   orientation: string
   lang?: string
@@ -28,14 +29,14 @@ interface Suboptions {
   path: string
 }
 export const NavBar = (props: Props) => {
-  
+
   let orientation:string;
   if (props.orientation === 'rtl') orientation = 'RTL'
   else orientation = 'LTR'
-  
-  
+
+
   let langjson = props.optionsArray
-  
+
   let inputMenu : Options[] = langjson
   // let inputMenu : Options[] = langjson.menu;
   interface Result {
@@ -85,7 +86,7 @@ export const NavBar = (props: Props) => {
   const inputList = inputMenu.map(function (ele: Options, index: number) {
     if (ele.children?.length === 0 && ele.path) { //if children defined & length=0
       return (
-        <li key={ele.id}>
+        <li key={ele.id} data-testId='homeBtnId'>
           <Link to={ele.path}
             style={ props.option=== 'vertical'
             ? {textDecoration:'none', color:'yellow'}
@@ -99,6 +100,8 @@ export const NavBar = (props: Props) => {
       return (
         <React.Fragment>
           <li
+
+            data-testId='childrenHeadersId'
             className='nav_title'
             key={ele.id}
             // onClick={() => changeInitialSubMenuState(ele.text)}
@@ -118,7 +121,7 @@ export const NavBar = (props: Props) => {
           >
         {/*renders parent text */}
             {ele.text}
-             {/* hello World */}
+
             {/*checks horizontal or vertical option prop */}
             {props.option === 'horizontal' && (
               <div ref={dropDown.current[index - 1]}>
@@ -144,7 +147,7 @@ export const NavBar = (props: Props) => {
               >
                 {ele?.children.map((subEl: Suboptions) => {
                   return (
-                    <li>
+                    <li data-testId='subMenu'>
                       <Link to={subEl.path as string} style={{textDecoration:'none', color:'yellow'}}>
                         {subEl.text}
                       </Link>
@@ -187,7 +190,7 @@ export const NavBar = (props: Props) => {
 
   return (
     <BrowserRouter>
-      <div>
+      <div >
         {props.option === 'horizontal' && props.orientation === 'ltr' && (
           <div className='navbarH'>
             <nav>
@@ -226,7 +229,7 @@ export const NavBar = (props: Props) => {
         )}
         {/* no search input in horizontal in rtl */}
         {props.option === 'horizontal' && props.orientation === 'rtl' && (
-          <div className='navbar'>
+          <div data-testid='navbar-h' className='navbar'>
             <ul
               className={styles.menuitemHRTL}
               style={props.theme ? { backgroundColor: props.theme } : {}}
@@ -238,7 +241,7 @@ export const NavBar = (props: Props) => {
         )}
       {/* doesn't make sense to have vertical AND ltr */}
         {props.option === 'vertical' && props.orientation === 'ltr' && (
-          <div className='navbarV'>
+          <div className='navbarV' data-testid='navbarV'>
             <nav>
               <ul
                 className={styles.menuitemV}
