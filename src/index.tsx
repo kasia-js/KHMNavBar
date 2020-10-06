@@ -140,7 +140,7 @@ export const NavBar = (props: Props) => {
                         position: 'absolute',
                         display: 'block',
                         float: 'right',
-                        backgroundColor: 'blue'https://github.com/testing-library/jest-dom
+                        backgroundColor: 'blue'
                       }
                     : { display: 'none' }
                 }
