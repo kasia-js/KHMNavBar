@@ -1,16 +1,24 @@
 import React from 'react'
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import { NavBar } from '../../src/index'
 
-interface Props {
-  orientation?: string
-  lang?: string
-  searchFunction?: Function
-  option: string
-  theme: string
-  search: string
-  optionsArray: Options[],
-}
+// import About from './About'
+// import Consulting from './Consulting.js'
+// import Projects from './Projects.js'
+// import Ventures from './Ventures.js'
+// import Info from './Info.js'
+// import Help from './Help.js'
+
+// interface Props {
+//   orientation?: string
+//   lang?: string
+//   searchFunction: Function
+//   option: string
+//   theme: string
+//   search: string
+//   optionsArray: Options[],
+// }
 
 export interface Options {
   id: number
@@ -42,15 +50,28 @@ const optionsArray : Options[] = [
   }
 ]
 
-let searchFunction = function(input: string) {
+const searchFunction = (input: string) => {
   console.log(input)
 }
 
 const App = () => {
 
-  return <NavBar optionsArray={optionsArray}  option = "horizontal"  orientation = "ltr" theme="slategrey" search = "search" searchFunction={searchFunction}/>
+
+  {/* <BrowserRouter> */}
+
+  <NavBar optionsArray={optionsArray}  option = "horizontal"  orientation = "ltr" theme="slategrey" search = "search" searchFunction={searchFunction}/>
+
+       {/* <Switch>
+          <Route exact path="/about" component={About} />
+          <Route path="/consulting" component={Consulting}/>
+          <Route path="/projects" component = {Projects} />
+          <Route path="/ventures" component = {Ventures} />
+          <Route path="/info" component = {Info} />
+          <Route path="/help" component = {Help} />
+       </Switch>
+
+    </BrowserRouter> */}
 
 }
 
 export default App
-f
