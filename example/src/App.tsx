@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import { NavBar } from 'navigation-bar-component-for-react'
+import {NavBar} from './dist/index' //import from package when we publish
 
 import About from './About'
 import Consulting from './Consulting.js'

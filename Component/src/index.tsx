@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
  //loader for jpeg files
 // const searchIcon = require('../../assets/searchIcon.png')
 // import './styles.scss'
-import { BrowserRouter } from 'react-router-dom';
 
 interface Props {
   orientation?: string
@@ -88,7 +87,8 @@ export const NavBar = (props: Props) => {
           <li
 
             data-testid='childrenHeadersId'
-            className='nav_title'
+            className={styles.nav_title}
+            // className='nav_title'
             key={ele.id}
             // onClick={() => changeInitialSubMenuState(ele.text)}
             style={
@@ -114,7 +114,7 @@ export const NavBar = (props: Props) => {
           {/*children rendered in ul// checks isShown state*/}
           {/*if isShown === 'services' or 'contact'*/}
               <ul
-                className='ul_child'
+                className={styles.ul_child}
                 // {
                 //   orientation === 'RTL'
                 //     ? styles.menuitemNestedVRTL
@@ -175,10 +175,9 @@ export const NavBar = (props: Props) => {
   })
 
   return (
-    <BrowserRouter>
       <div >
         {props.option === 'horizontal' && props.orientation === 'ltr' && (
-          <div className='navbarH' data-testid='navbar-horizontal-ltr'>
+          <div className={styles.navbarH} data-testid='navbar-horizontal-ltr'>
             <nav>
               <ul
                 className={styles.menuitemH}
@@ -217,7 +216,7 @@ export const NavBar = (props: Props) => {
         {/* no search input in horizontal in rtl */}
 
          {props.option === 'horizontal' && props.orientation === 'rtl' && (
-          <div data-testid='navbar-horizontal-rtl' className='navbar'>
+          <div data-testid='navbar-horizontal-rtl' className={styles.navbar}>
             <ul
               className={styles.menuitemHRTL}
               style={props.theme ? { backgroundColor: props.theme } : {}}
@@ -230,7 +229,7 @@ export const NavBar = (props: Props) => {
 
 
         {props.option === 'vertical' && (
-          <div style={{display: 'flex'}} className='navbarV' data-testid='navbar-vertical'>
+          <div style={{display: 'flex'}} className={styles.navbarV} data-testid='navbar-vertical'>
             <nav>
               <ul
                 className={styles.menuitemV}
@@ -244,10 +243,10 @@ export const NavBar = (props: Props) => {
                       ? { display: 'inline - block' }
                       : { display: 'none' }
                   }
-                  className='searchBarV'
+                  className={styles.searchBarV}
                 >
                   <input
-                    className='searchBarVInput'
+                    className={styles.searchBarVInput}
                     type='text'
                     placeholder='Enter to Search'
                     value={input}
@@ -266,6 +265,5 @@ export const NavBar = (props: Props) => {
           </div>
         )}
       </div>
-    </BrowserRouter>
   )
 }

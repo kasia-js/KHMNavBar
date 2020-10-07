@@ -197,5 +197,5 @@ margin-top: 10px;
   display: block !important;
 }
 .nav_title .ul_child {
-  display: block !important;
+  display: none !important;
 }
