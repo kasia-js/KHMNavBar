@@ -6,16 +6,15 @@ import { Link } from 'react-router-dom'
  //loader for jpeg files
 // const searchIcon = require('../../assets/searchIcon.png')
 // import './styles.scss'
-import { BrowserRouter } from 'react-router-dom';
 
 interface Props {
-  orientation: string
+  orientation?: string
   lang?: string
-  searchFunction?: Function
+  searchFunction: Function
   option: string
   theme: string
   search: string
-  optionsArray: Options[]
+  optionsArray: Options[],
 }
 export interface Options {
   id: number
@@ -50,44 +49,29 @@ export const NavBar = (props: Props) => {
     return result;
   }
   const [menuHeader] = useState<Result>(setInitialSubMenuState(props.optionsArray));
-  const [input, setInput] = useState<string>('')
+
   const dropDown = useRef([React.createRef<HTMLDivElement>(),React.createRef<HTMLDivElement>()])
   // useClickOutside(menuHeader, dropDown.current[0], hideSubMenu, 'Services')
   // useClickOutside(menuHeader, dropDown.current[1], hideSubMenu, 'Contact')
-//changeInitialSubMenuState
-  // function changeInitialSubMenuState(text: string) { //key of isShown object
-  //   const newState: Result = {...menuHeader};
-  //   newState[text] = !newState[text]; //do we need to set boolean ts here
-  //   setMenuHeader(newState);
-  //   console.log('changeInitialSubMenuState',newState)
-  // }
-  // //if (clicOutsideEvent & newState[text])=== true => newState[text] = false
-  // //hideSubMenu happens on clickOutside
-  // function hideSubMenu (text: string) {
-  //   const OnClickOutsideUpdateState: Result = {...menuHeader};
-  //   if(OnClickOutsideUpdateState[text] === true) {
-  //     OnClickOutsideUpdateState[text] = !OnClickOutsideUpdateState[text];
-  //     setMenuHeader(OnClickOutsideUpdateState);
-  //   }
-  // }
-  // onclick={() => hideSubMenu(ele.text)}
+
+  const [input, setInput] = useState<string>('')
+
   function handleChange(e: React.FormEvent<HTMLInputElement>) {
     setInput(e.currentTarget.value)
   }
+
   function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
+    console.log('heyyyyyyyy')
     e.preventDefault()
-    //store value in component and FILTER SOME DATA
+    props.searchFunction(input)
     setInput('')
-    return (
-      <h2>Your Search results are as follows</h2>
-    )
-    // props.searchFunction()
   }
-  // to generate the entire list of main menu items from the props received
+
+
   const inputList = inputMenu.map(function (ele: Options, index: number) {
     if (ele.children?.length === 0 && ele.path) { //if children defined & length=0
       return (
-        <li key={ele.id} data-testId='homeBtnId'>
+        <li key={ele.id} data-testid='homeBtnId'>
           <Link to={ele.path}
             style={ props.option=== 'vertical'
             ? {textDecoration:'none', color:'yellow'}
@@ -102,8 +86,9 @@ export const NavBar = (props: Props) => {
         <React.Fragment>
           <li
 
-            data-testId='childrenHeadersId'
-            className='nav_title'
+            data-testid='childrenHeadersId'
+            className={styles.nav_title}
+            // className='nav_title'
             key={ele.id}
             // onClick={() => changeInitialSubMenuState(ele.text)}
             style={
@@ -129,7 +114,7 @@ export const NavBar = (props: Props) => {
           {/*children rendered in ul// checks isShown state*/}
           {/*if isShown === 'services' or 'contact'*/}
               <ul
-                className='ul_child'
+                className={styles.ul_child}
                 // {
                 //   orientation === 'RTL'
                 //     ? styles.menuitemNestedVRTL
@@ -148,7 +133,7 @@ export const NavBar = (props: Props) => {
               >
                 {ele?.children.map((subEl: Suboptions) => {
                   return (
-                    <li data-testId='subMenu'>
+                    <li data-testid='subMenu'>
                       <Link to={subEl.path as string} style={{textDecoration:'none', color:'yellow'}}>
                         {subEl.text}
                       </Link>
@@ -190,10 +175,9 @@ export const NavBar = (props: Props) => {
   })
 
   return (
-    <BrowserRouter>
       <div >
         {props.option === 'horizontal' && props.orientation === 'ltr' && (
-          <div className='navbarH'>
+          <div className={styles.navbarH} data-testid='navbar-horizontal-ltr'>
             <nav>
               <ul
                 className={styles.menuitemH}
@@ -214,7 +198,7 @@ export const NavBar = (props: Props) => {
                     type='text'
                     placeholder='HELLO FROM SEARCH'
                     value={input}
-                    onChange={handleChange}
+                    onChange={() => handleChange}
                   />
                   <button
                     data-testid='go-btn'
@@ -230,8 +214,9 @@ export const NavBar = (props: Props) => {
           </div>
         )}
         {/* no search input in horizontal in rtl */}
-        {props.option === 'horizontal' && props.orientation === 'rtl' && (
-          <div data-testid='navbar-h' className='navbar'>
+
+         {props.option === 'horizontal' && props.orientation === 'rtl' && (
+          <div data-testid='navbar-horizontal-rtl' className={styles.navbar}>
             <ul
               className={styles.menuitemHRTL}
               style={props.theme ? { backgroundColor: props.theme } : {}}
@@ -241,9 +226,10 @@ export const NavBar = (props: Props) => {
             </ul>
           </div>
         )}
-        {/* doesn't make sense to have vertical AND ltr */}
-        {props.option === 'vertical' && props.orientation === 'ltr' && (
-          <div className='navbarV' data-testid='navbar-vertical'>
+
+
+        {props.option === 'vertical' && (
+          <div style={{display: 'flex'}} className={styles.navbarV} data-testid='navbar-vertical'>
             <nav>
               <ul
                 className={styles.menuitemV}
@@ -257,17 +243,19 @@ export const NavBar = (props: Props) => {
                       ? { display: 'inline - block' }
                       : { display: 'none' }
                   }
-                  className='searchBarV'
+                  className={styles.searchBarV}
                 >
                   <input
-                    className='searchBarVInput'
+                    className={styles.searchBarVInput}
                     type='text'
                     placeholder='Enter to Search'
                     value={input}
                     onChange={handleChange}
                   />
                   <br />
-                  <button type='submit' onClick={handleSubmit}>
+                  <button
+                  onClick={handleSubmit}
+                  data-testid='go-btn'>
                     Go
                   </button>
                 </div>
@@ -277,7 +265,5 @@ export const NavBar = (props: Props) => {
           </div>
         )}
       </div>
-    </BrowserRouter>
   )
 }
-// export default NavBar;
