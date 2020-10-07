@@ -76,6 +76,7 @@ export const NavBar = (props: Props) => {
   }
   function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
+    //store value in component and FILTER SOME DATA
     setInput('')
     return (
       <h2>Your Search results are as follows</h2>
@@ -208,7 +209,7 @@ export const NavBar = (props: Props) => {
                   }
                   className={styles.searchBarH}
                 >
-              <input
+                  <input
                     className={styles.searchBarHInput}
                     type='text'
                     placeholder='HELLO FROM SEARCH'
@@ -216,13 +217,14 @@ export const NavBar = (props: Props) => {
                     onChange={handleChange}
                   />
                   <button
+                    data-testid='go-btn'
                     type='submit'
                     className={styles.formsubmit}
                     onClick={handleSubmit}
                   >
                     Go
                   </button>
-                  </div>
+                </div>
               </ul>
             </nav>
           </div>
@@ -239,9 +241,9 @@ export const NavBar = (props: Props) => {
             </ul>
           </div>
         )}
-      {/* doesn't make sense to have vertical AND ltr */}
+        {/* doesn't make sense to have vertical AND ltr */}
         {props.option === 'vertical' && props.orientation === 'ltr' && (
-          <div className='navbarV' data-testid='navbarV'>
+          <div className='navbarV' data-testid='navbar-vertical'>
             <nav>
               <ul
                 className={styles.menuitemV}
@@ -265,9 +267,9 @@ export const NavBar = (props: Props) => {
                     onChange={handleChange}
                   />
                   <br />
-                    <button type='submit' onClick={handleSubmit}>
-                      Go
-                    </button>
+                  <button type='submit' onClick={handleSubmit}>
+                    Go
+                  </button>
                 </div>
                 {inputList}
               </ul>
@@ -275,7 +277,7 @@ export const NavBar = (props: Props) => {
           </div>
         )}
       </div>
-      </BrowserRouter>
+    </BrowserRouter>
   )
 }
 // export default NavBar;
