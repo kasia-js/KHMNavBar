@@ -87,7 +87,7 @@ export const NavBar = (props: Props) => {
   const inputList = inputMenu.map(function (ele: Options, index: number) {
     if (ele.children?.length === 0 && ele.path) { //if children defined & length=0
       return (
-        <li key={ele.id} data-testId='homeBtnId'>
+        <li key={ele.id} data-testid='homeBtnId'>
           <Link to={ele.path}
             style={ props.option=== 'vertical'
             ? {textDecoration:'none', color:'yellow'}
@@ -102,7 +102,7 @@ export const NavBar = (props: Props) => {
         <React.Fragment>
           <li
 
-            data-testId='childrenHeadersId'
+            data-testid='childrenHeadersId'
             className='nav_title'
             key={ele.id}
             // onClick={() => changeInitialSubMenuState(ele.text)}
@@ -148,7 +148,7 @@ export const NavBar = (props: Props) => {
               >
                 {ele?.children.map((subEl: Suboptions) => {
                   return (
-                    <li data-testId='subMenu'>
+                    <li data-testid='subMenu'>
                       <Link to={subEl.path as string} style={{textDecoration:'none', color:'yellow'}}>
                         {subEl.text}
                       </Link>
@@ -242,8 +242,8 @@ export const NavBar = (props: Props) => {
           </div>
         )}
         {/* doesn't make sense to have vertical AND ltr */}
-        {props.option === 'vertical' && props.orientation === 'ltr' && (
-          <div className='navbarV' data-testid='navbar-vertical'>
+        {props.option === 'vertical' && (
+          <div style={{display: 'flex'}} className='navbarV' data-testid='navbar-vertical'>
             <nav>
               <ul
                 className={styles.menuitemV}
@@ -267,7 +267,7 @@ export const NavBar = (props: Props) => {
                     onChange={handleChange}
                   />
                   <br />
-                  <button type='submit' onClick={handleSubmit}>
+                  <button onClick={handleSubmit}>
                     Go
                   </button>
                 </div>

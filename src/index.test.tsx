@@ -48,6 +48,21 @@ const mockProps: Props = {
   ]
 }
 
+const mockPropsVertical: Props = {
+  searchFunction: jest.fn(),
+  option: 'vertical',
+  theme: 'slategray',
+  search: 'search',
+  optionsArray: [
+    {
+      id: 1,
+      text: 'Home',
+      children: [{ id: 1, text: 'Contact Info', path: '/info' }],
+      path: '/about'
+    }
+  ]
+}
+
 describe('NavBar', () => {
   it('has child nodes', () => {
     render(<NavBar {...mockProps} />)
@@ -75,18 +90,16 @@ describe('NavBar', () => {
   // })
 
   it('Should display Home', () => {
-    screen.getByText((content: string) => content.startsWith('Home'))
+    const { getByText } = render(<NavBar {...mockProps}/>)
+    // getByText((content: string) => content.startsWith('Home'))
+    const home = getByText('Home')
+    expect(home).toBeTruthy()
   })
 
-  it('should display a vertical menu if options===vertical', () => {
-    render(<NavBar {...mockProps} />)
+  it.only('should display a vertical menu if options===vertical', () => {
+    render(<NavBar {...mockPropsVertical} />)
     const vertical = screen.getByTestId('navbar-vertical')
-    expect(vertical).toHaveStyle(`
-      display: flex;
-      float:left;
-      flex-direction: column;
-      align-items: center;
-    `)
+    expect(vertical).toHaveClass('navbarV')
   })
 
   it('should show sub headers', () => {
@@ -105,8 +118,14 @@ describe('NavBar', () => {
     })
   })
 
-  test.only('snapshot', () => {
+  test('snapshot', () => {
     const { container } = render(<NavBar {...mockProps} />)
+    //container = outermost div that holds component
+    expect(container.firstChild).toMatchSnapshot()
+  })
+
+  test.only('snapshot vertical', () => {
+    const { container } = render(<NavBar {...mockPropsVertical} />)
     expect(container.firstChild).toMatchSnapshot()
   })
 
@@ -123,18 +142,18 @@ describe('NavBar', () => {
   })
 
   test('search bar should display the right search value', () => {
+    render(<NavBar {...mockProps} />)
+    //simulate click and just check function call
     render(<input value='hello world'> </input>)
     expect(screen.getByDisplayValue('hello world')).toBeInTheDocument()
   })
 
-  test('calls handleSubmit onClick', () => {
+  test.only('calls handleSubmit onClick', () => {
+    const { getByText } = render(<NavBar {...mockProps} />)
     const handleSubmit = jest.fn()
-    const { container, getByText } = renderIntoDocument(
-      <button onClick={handleSubmit} />
-    )
-    const formNode = container.querySelector('formsubmit')
-    const submitButtonNode = getByText('submit')
-    Simulate.submit(formNode)
+
+    const button = getByText('Go')
+    Simulate.click(button)
     expect(submitButtonNode.type).toBe('submit')
 
     expect(handleSubmit).toHaveBeenCalledTimes(1)

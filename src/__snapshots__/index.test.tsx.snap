@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar snapshot 1`] = `
+<div>
+  <div
+    class="navbar"
+    data-testid="navbar-h"
+  >
+    <ul
+      class="menuitemHRTL"
+      style="background-color: slategray;"
+    >
+      <li
+        class="nav_title"
+        data-testid="childrenHeadersId"
+        style="position: relative; float: right; color: purple;"
+      >
+        Home
+        <div>
+          <ul
+            class="ul_child"
+            style="display: none;"
+          >
+            <li
+              data-testid="subMenu"
+            >
+              <a
+                href="/info"
+                style="text-decoration: none; color: yellow;"
+              >
+                Contact Info
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`NavBar snapshot vertical 1`] = `
+<div>
+  <div
+    class="navbarV"
+    data-testid="navbar-vertical"
+    style="display: flex;"
+  >
+    <nav>
+      <ul
+        class="menuitemV"
+        style="background-color: slategray;"
+      >
+        <br />
+        <div
+          class="searchBarV"
+          style="display: inline - block;"
+        >
+          <input
+            class="searchBarVInput"
+            placeholder="Enter to Search"
+            type="text"
+            value=""
+          />
+          <br />
+          <button
+            type="submit"
+          >
+            Go
+          </button>
+        </div>
+        <li
+          class="nav_title"
+          data-testid="childrenHeadersId"
+          style="position: relative; float: right; color: red;"
+        >
+          Home
+          <div>
+            <ul
+              class="menuitemNestedH"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  href="/info"
+                  style="text-decoration: none; color: black;"
+                >
+                  Contact Info
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+`;
