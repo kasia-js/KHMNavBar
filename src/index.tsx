@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom';
 
 interface Props {
-  orientation: string
+  orientation?: string
   lang?: string
   searchFunction?: Function
   option: string
@@ -81,7 +81,8 @@ export const NavBar = (props: Props) => {
     return (
       <h2>Your Search results are as follows</h2>
     )
-    // props.searchFunction()
+    //get function from user passed in as props
+    //examplePropsFunction(input)
   }
   // to generate the entire list of main menu items from the props received
   const inputList = inputMenu.map(function (ele: Options, index: number) {
@@ -193,7 +194,7 @@ export const NavBar = (props: Props) => {
     <BrowserRouter>
       <div >
         {props.option === 'horizontal' && props.orientation === 'ltr' && (
-          <div className='navbarH'>
+          <div className='navbarH' data-testid='navbar-horizontal-ltr'>
             <nav>
               <ul
                 className={styles.menuitemH}
@@ -230,8 +231,9 @@ export const NavBar = (props: Props) => {
           </div>
         )}
         {/* no search input in horizontal in rtl */}
-        {props.option === 'horizontal' && props.orientation === 'rtl' && (
-          <div data-testid='navbar-h' className='navbar'>
+
+         {props.option === 'horizontal' && props.orientation === 'rtl' && (
+          <div data-testid='navbar-horizontal-rtl' className='navbar'>
             <ul
               className={styles.menuitemHRTL}
               style={props.theme ? { backgroundColor: props.theme } : {}}
@@ -241,7 +243,8 @@ export const NavBar = (props: Props) => {
             </ul>
           </div>
         )}
-        {/* doesn't make sense to have vertical AND ltr */}
+
+
         {props.option === 'vertical' && (
           <div style={{display: 'flex'}} className='navbarV' data-testid='navbar-vertical'>
             <nav>

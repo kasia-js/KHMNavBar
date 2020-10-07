@@ -23,7 +23,7 @@ interface Suboptions {
 }
 
 interface Props {
-  orientation: string
+  orientation?: string
   lang?: string
   searchFunction?: Function
   option: string
@@ -34,6 +34,22 @@ interface Props {
 
 const mockProps: Props = {
   orientation: 'rtl',
+  searchFunction: jest.fn(),
+  option: 'horizontal',
+  theme: 'slategray',
+  search: 'search',
+  optionsArray: [
+    {
+      id: 1,
+      text: 'Home',
+      children: [{ id: 1, text: 'Contact Info', path: '/info' }],
+      path: '/about'
+    }
+  ]
+}
+
+const mockPropsLTR: Props = {
+  orientation: 'ltr',
   searchFunction: jest.fn(),
   option: 'horizontal',
   theme: 'slategray',
@@ -96,10 +112,22 @@ describe('NavBar', () => {
     expect(home).toBeTruthy()
   })
 
-  it.only('should display a vertical menu if options===vertical', () => {
+  it('should display a vertical menu', () => {
     render(<NavBar {...mockPropsVertical} />)
     const vertical = screen.getByTestId('navbar-vertical')
     expect(vertical).toHaveClass('navbarV')
+  })
+
+  it('should display a horizontal RTL menu', () => {
+    render(<NavBar {...mockProps} />)
+    const horizontal = screen.getByTestId('navbar-horizontal-rtl')
+    expect(horizontal).toHaveClass('navbar')
+  })
+
+  it('should display a horizontal LTR menu', () => {
+    render(<NavBar {...mockPropsLTR} />)
+    const horizontal = screen.getByTestId('navbar-horizontal-ltr')
+    expect(horizontal).toHaveClass('navbarH')
   })
 
   it('should show sub headers', () => {
@@ -124,12 +152,12 @@ describe('NavBar', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  test.only('snapshot vertical', () => {
+  test('snapshot vertical', () => {
     const { container } = render(<NavBar {...mockPropsVertical} />)
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  test('should show home header', () => {
+  test.only('should show home header', () => {
     const { getByText } = render(<NavBar {...mockProps} />)
     const home = getByText(mockProps.optionsArray[0].text)
     // const home = getByText('home', { exact: false })
@@ -148,7 +176,7 @@ describe('NavBar', () => {
     expect(screen.getByDisplayValue('hello world')).toBeInTheDocument()
   })
 
-  test.only('calls handleSubmit onClick', () => {
+  test('calls handleSubmit onClick', () => {
     const { getByText } = render(<NavBar {...mockProps} />)
     const handleSubmit = jest.fn()
 
