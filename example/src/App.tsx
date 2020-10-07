@@ -42,7 +42,7 @@ const optionsArray : Options[] = [
 ]
 
 const searchFunction = (input: string) => {
-  console.log(input)
+  return input
 }
 
 const App = () => {

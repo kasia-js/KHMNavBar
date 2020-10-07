@@ -62,6 +62,7 @@ export const NavBar = (props: Props) => {
   }
 
   function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
+    console.log('heyyyyyyyy')
     e.preventDefault()
     props.searchFunction(input)
     setInput('')
@@ -206,7 +207,7 @@ export const NavBar = (props: Props) => {
                     className={styles.formsubmit}
                     onClick={handleSubmit}
                   >
-                    GoTest
+                    Go
                   </button>
                 </div>
               </ul>
@@ -268,4 +269,3 @@ export const NavBar = (props: Props) => {
     </BrowserRouter>
   )
 }
-// export default NavBar;

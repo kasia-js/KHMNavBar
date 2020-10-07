@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { NavBar } from '.'
-import { screen, render } from '@testing-library/react'
+import { screen, render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import {
-  renderIntoDocument,
-  Simulate,
-  // ReactTestUtils
-} from 'react-dom/test-utils'
+// import {
+//   renderIntoDocument,
+//   Simulate,
+//   // ReactTestUtils
+// } from 'react-dom/test-utils'
 
 interface Options {
   id: number
@@ -91,21 +91,7 @@ describe('NavBar', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  // it('should expect props to be passed in to component', () => {
-  //   render(<NavBar {...mockProps} />);
-  // const wrapper = shallow(
-  // <NavBar {...mockProps} orientation="rtl" option="horizontal" />
-  // );
-  //   expect(wrapper.find(NavBar).prop('orientation')).toBe('rtl');
-  //   expect(wrapper.find(NavBar).prop('option')).toBe('horizontal');
-  // })
-
-  // it('should be the same as snapshot', () => {
-  //   const component = render(<NavBar {...mockProps} />)
-  //   expect(component).toMatchSnapshot()
-  // })
-
-  it('Should display Home', () => {
+  it('should display Home', () => {
     const { getByText } = render(<NavBar {...mockProps}/>)
     const home = getByText('Home')
     expect(home).toBeTruthy()
@@ -163,12 +149,6 @@ describe('NavBar', () => {
     expect(home).toBeTruthy()
   })
 
-  // it('Should display Home', () => {
-  //   const { getByText } = render(<NavBar {...mockProps}/>)
-  //   const home = getByText('Home')
-  //   expect(home).toBeTruthy()
-  // })
-
   it('should have a type attribute equals to submit', () => {
     const { getByTestId } = render(<NavBar {...mockPropsLTR} />)
     const button = getByTestId('go-btn')
@@ -182,14 +162,10 @@ describe('NavBar', () => {
   //   expect(screen.getByDisplayValue('hello world')).toBeInTheDocument()
   // })
 
-  test('calls handleSubmit onClick', () => {
-    const { getByText } = render(<NavBar {...mockProps} />)
+  test.only('calls handleSubmit on button click for search', () => {
+    const { getByTestId } = render(<NavBar {...mockPropsLTR} />)
     const handleSubmit = jest.fn()
-
-    const button = getByText('Go')
-    Simulate.click(button)
-    expect(submitButtonNode.type).toBe('submit')
-
+    fireEvent.change(getByTestId('go-btn'), handleSubmit);
     expect(handleSubmit).toHaveBeenCalledTimes(1)
   })
 
