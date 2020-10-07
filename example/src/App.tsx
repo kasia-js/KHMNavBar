@@ -2,8 +2,16 @@ import React from 'react'
 
 import { NavBar } from '../../src/index'
 
-// import 'j/dist/index.css'
-// import {Options} from ''
+interface Props {
+  orientation?: string
+  lang?: string
+  searchFunction?: Function
+  option: string
+  theme: string
+  search: string
+  optionsArray: Options[],
+}
+
 export interface Options {
   id: number
   text: string
@@ -34,11 +42,15 @@ const optionsArray : Options[] = [
   }
 ]
 
+let searchFunction = function(input: string) {
+  console.log(input)
+}
+
 const App = () => {
 
-  return <NavBar optionsArray={optionsArray}  option = "horizontal"  orientation = "ltr" theme="slategrey" search = "search"/>
-
+  return <NavBar optionsArray={optionsArray}  option = "horizontal"  orientation = "ltr" theme="slategrey" search = "search" searchFunction={searchFunction}/>
 
 }
 
 export default App
+f

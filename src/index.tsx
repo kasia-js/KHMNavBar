@@ -11,11 +11,11 @@ import { BrowserRouter } from 'react-router-dom';
 interface Props {
   orientation?: string
   lang?: string
-  searchFunction?: Function
+  searchFunction: Function
   option: string
   theme: string
   search: string
-  optionsArray: Options[]
+  optionsArray: Options[],
 }
 export interface Options {
   id: number
@@ -50,41 +50,24 @@ export const NavBar = (props: Props) => {
     return result;
   }
   const [menuHeader] = useState<Result>(setInitialSubMenuState(props.optionsArray));
-  const [input, setInput] = useState<string>('')
+
   const dropDown = useRef([React.createRef<HTMLDivElement>(),React.createRef<HTMLDivElement>()])
   // useClickOutside(menuHeader, dropDown.current[0], hideSubMenu, 'Services')
   // useClickOutside(menuHeader, dropDown.current[1], hideSubMenu, 'Contact')
-//changeInitialSubMenuState
-  // function changeInitialSubMenuState(text: string) { //key of isShown object
-  //   const newState: Result = {...menuHeader};
-  //   newState[text] = !newState[text]; //do we need to set boolean ts here
-  //   setMenuHeader(newState);
-  //   console.log('changeInitialSubMenuState',newState)
-  // }
-  // //if (clicOutsideEvent & newState[text])=== true => newState[text] = false
-  // //hideSubMenu happens on clickOutside
-  // function hideSubMenu (text: string) {
-  //   const OnClickOutsideUpdateState: Result = {...menuHeader};
-  //   if(OnClickOutsideUpdateState[text] === true) {
-  //     OnClickOutsideUpdateState[text] = !OnClickOutsideUpdateState[text];
-  //     setMenuHeader(OnClickOutsideUpdateState);
-  //   }
-  // }
-  // onclick={() => hideSubMenu(ele.text)}
+
+  const [input, setInput] = useState<string>('')
+
   function handleChange(e: React.FormEvent<HTMLInputElement>) {
     setInput(e.currentTarget.value)
   }
+
   function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
-    //store value in component and FILTER SOME DATA
+    props.searchFunction(input)
     setInput('')
-    return (
-      <h2>Your Search results are as follows</h2>
-    )
-    //get function from user passed in as props
-    //examplePropsFunction(input)
   }
-  // to generate the entire list of main menu items from the props received
+
+
   const inputList = inputMenu.map(function (ele: Options, index: number) {
     if (ele.children?.length === 0 && ele.path) { //if children defined & length=0
       return (
@@ -215,7 +198,7 @@ export const NavBar = (props: Props) => {
                     type='text'
                     placeholder='HELLO FROM SEARCH'
                     value={input}
-                    onChange={handleChange}
+                    onChange={() => handleChange}
                   />
                   <button
                     data-testid='go-btn'
