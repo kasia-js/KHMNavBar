@@ -206,7 +206,7 @@ export const NavBar = (props: Props) => {
                     className={styles.formsubmit}
                     onClick={handleSubmit}
                   >
-                    Go
+                    GoTest
                   </button>
                 </div>
               </ul>

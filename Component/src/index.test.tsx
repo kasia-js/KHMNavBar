@@ -107,7 +107,6 @@ describe('NavBar', () => {
 
   it('Should display Home', () => {
     const { getByText } = render(<NavBar {...mockProps}/>)
-    // getByText((content: string) => content.startsWith('Home'))
     const home = getByText('Home')
     expect(home).toBeTruthy()
   })
@@ -157,16 +156,24 @@ describe('NavBar', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  test.only('should show home header', () => {
+  test('should show home header', () => {
     const { getByText } = render(<NavBar {...mockProps} />)
     const home = getByText(mockProps.optionsArray[0].text)
     // const home = getByText('home', { exact: false })
     expect(home).toBeTruthy()
   })
 
-  it('should have a type attribute equals to submit', () => {
-    const button = screen.getByTestId('go-btn')
-    expect(button.hasAttribute('submit'))
+  // it('Should display Home', () => {
+  //   const { getByText } = render(<NavBar {...mockProps}/>)
+  //   const home = getByText('Home')
+  //   expect(home).toBeTruthy()
+  // })
+
+  it.only('should have a type attribute equals to submit', () => {
+    const { getByText } = render(<NavBar {...mockPropsLTR} />)
+    const button = getByText('GoTest')
+    expect(button).toBeTruthy()
+    // expect(button.hasAttribute('submit'))
   })
 
   test('search bar should display the right search value', () => {

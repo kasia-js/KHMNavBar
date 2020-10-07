@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import { NavBar } from '../../src/index'
+import { NavBar } from 'navigation-bar-component-for-react'
 
 import About from './About'
 import Consulting from './Consulting.js'
@@ -53,16 +53,16 @@ const App = () => {
 
       <NavBar optionsArray={optionsArray}  option = "horizontal"  orientation = "ltr" theme="slategrey" search = "search" searchFunction={searchFunction}/>
 
-     <Switch>
-        <Route exact path="/about" component={About} />
-        <Route path="/consulting" component={Consulting}/>
-        <Route path="/projects" component = {Projects} />
-        <Route path="/ventures" component = {Ventures} />
-        <Route path="/info" component = {Info} />
-        <Route path="/help" component = {Help} />
-     </Switch>
+      <Switch>
+          <Route exact path="/about" component={About} />
+          <Route path="/consulting" component={Consulting}/>
+          <Route path="/projects" component = {Projects} />
+          <Route path="/ventures" component = {Ventures} />
+          <Route path="/info" component = {Info} />
+          <Route path="/help" component = {Help} />
+      </Switch>
 
-    </BrowserRouter>
+      </BrowserRouter>
     </div>
 
   )
