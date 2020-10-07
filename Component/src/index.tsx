@@ -253,7 +253,9 @@ export const NavBar = (props: Props) => {
                     onChange={handleChange}
                   />
                   <br />
-                  <button onClick={handleSubmit}>
+                  <button
+                  onClick={handleSubmit}
+                  data-testid='go-btn'>
                     Go
                   </button>
                 </div>
