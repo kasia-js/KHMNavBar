@@ -1,30 +1,20 @@
-# j
+# NavBar Generator
+React Library Component ready to download and npm install. 
 
-> Made with create-react-library
+## Built with
 
-[![NPM](https://img.shields.io/npm/v/j.svg)](https://www.npmjs.com/package/j) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Router](https://reactrouter.com/)
+- [Jest](https://jestjs.io/)
 
-## Install
+## Developers:
+The initial project was developed in JavaScript by:
+- Rashmi Menon Vellekkat - [GitHub](https://github.com/RashmiBalaji) - [LinkedIn](https://www.linkedin.com/in/rashmi-menon-vellekkat-96bb88118/)
 
-```bash
-npm install --save j
-```
 
-## Usage
+It was then refactored to TypeScript and tested by:
+- Katarzyna Kolny - [GitHub](https://github.com/kasia-js) - [LinkedIn](https://www.linkedin.com/in/katarzyna-kolny-8b3384b9/)
+- Mo Wong - [GitHub](https://github.com/ommwong) - [LinkedIn](https://www.linkedin.com/in/mowong1/)
+- Hamed Sedighi - [GitHub](https://github.com/herol3oy) - [LinkedIn](https://www.linkedin.com/in/hamed-sedighi/)
 
-```tsx
-import React, { Component } from 'react'
-
-import MyComponent from 'j'
-import 'j/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
-```
-
-## License
-
-MIT © [kasia-js](https://github.com/kasia-js)
