@@ -77,6 +77,7 @@ describe('NavBar', () => {
   it('Should display Home', () => {
     screen.getByText((content: string) => content.startsWith('Home'))
   })
+  
 
   it('should display a vertical menu if options===vertical', () => {
     render(<NavBar {...mockProps} />)
@@ -105,7 +106,7 @@ describe('NavBar', () => {
     })
   })
 
-  test.only('snapshot', () => {
+  test('snapshot', () => {
     const { container } = render(<NavBar {...mockProps} />)
     expect(container.firstChild).toMatchSnapshot()
   })
