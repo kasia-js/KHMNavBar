@@ -18,7 +18,7 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border: 1px solid lightgray;
   border-radius: 5px;
-  background-color:slategray;
+  background-color:red;
   /*position: relative;*/
 }
 
@@ -122,7 +122,7 @@ margin-top: 10px;
   }
 
   ul li:hover {
-      background-color: grey;
+      background-color: orangered;
   }
 
   .menuitemNestedV {
@@ -135,7 +135,7 @@ margin-top: 10px;
     border-radius: 1px;
     padding: 10px 10px 10px 10px;
     margin-top: 10px;
-    background-color:lightgray;
+    background-color:blue;
 
   }
 
@@ -150,7 +150,7 @@ margin-top: 10px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px 0px 10px 0px;
-    background-color: yellow;
+    background-color: red;
   }
 
 

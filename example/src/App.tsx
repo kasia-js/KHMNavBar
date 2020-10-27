@@ -2,7 +2,7 @@ import React from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import {NavBar} from './dist/index' //import from package when we publish
-
+// import NavBar from 'j'
 import About from './About'
 import Consulting from './Consulting.js'
 import Projects from './Projects.js'
