@@ -1,0 +1,215 @@
+/* add css module styles here (optional) */
+* {
+  box-sizing: border-box;
+}
+
+._1h0l5 {
+  display: flex;
+
+}
+
+._2InL9 {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  color:white;
+  font-weight:bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color:slategray;
+  /*position: relative;*/
+}
+
+._DVtda {
+height: 40px;
+margin-top: 10px;
+}
+
+._19Zyf {
+  border-radius: 5px;
+}
+
+._oDMHY {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  color:white;
+  font-weight:bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color:slategray;
+  /*position: relative;*/
+}
+
+._2InL9 li
+ {
+  display: inline-block;
+ /* position: relative;*/
+  padding: 10px 20px 20px 20px;
+  }
+
+  ._oDMHY li
+ {
+  display: inline-block;
+ /* position: relative;*/
+  padding: 10px 20px 20px 20px;
+  }
+
+  ._3mTvp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ._hlOYg {
+    height: 100vh;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0px 100px 20px 20px;
+    display: flex;
+    float:left;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+    font-weight:bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color:black;
+  padding: 25px 25px 25px 25px;
+  list-style: outside none none;
+  }
+  ._3V2uo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+   ._2zCyY {
+     border: 1px solid black;
+     border-radius: 5px;
+   }
+
+
+  ._hlOYg li {
+    display: inline-block;
+    position:relative;
+    padding: 10px 0px 20px 0px;
+    }
+
+  ._c0YyE {
+    height: 500px;
+    width: 20%;
+    margin: 50px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color:white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 20px 20px 20px;
+    background-color: lightgrey;
+    float: right;
+  }
+
+  ul li:hover {
+      background-color: grey;
+  }
+
+  ._3caW6 {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    color: black;
+    border-radius: 1px;
+    padding: 10px 10px 10px 10px;
+    margin-top: 10px;
+    background-color:lightgray;
+
+  }
+
+  ._2MGQ4 {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 0px 10px 0px;
+    background-color: yellow;
+  }
+
+
+
+  ._c0YyE li {
+    display: inline-block;
+    padding: 10px 0px 20px 0px;
+    }
+
+    ._2a1HQ {
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      display: flex;
+      flex-direction: row;
+      align-self: flex-start;
+      color: black;
+      border-radius: 1px;
+      padding: 10px 20px 10px 0px;
+      margin-top: 10px;
+      margin-left: 25px;
+      background-color: gainsboro;
+      left:100%;
+      top:0;
+      z-index: 9999;
+      transition: all 0.5s ease 0s;
+    }
+
+._2a1HQ li {
+  display:inline-block;
+}
+
+._gARnM {
+  display:none;
+  position: absolute;
+  color: red;
+  background-color: lightgray;
+}
+
+._DB4hp ul li:hover {
+  background-color: lightgray;
+}
+
+._3XO7A:hover ._3XXqz {
+  display: block !important;
+}
+._3XO7A ._3XXqz {
+  display: block !important;
+}

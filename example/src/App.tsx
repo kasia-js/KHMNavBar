@@ -1,8 +1,16 @@
 import React from 'react'
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import { NavBar } from 'j'
-import 'j/dist/index.css'
-// import {Options} from ''
+import {NavBar} from './dist/index' //import from package when we publish
+
+import About from './About'
+import Consulting from './Consulting.js'
+import Projects from './Projects.js'
+import Ventures from './Ventures.js'
+import Info from './Info.js'
+import Help from './Help.js'
+
+
 export interface Options {
   id: number
   text: string
@@ -33,12 +41,31 @@ const optionsArray : Options[] = [
   }
 ]
 
+const searchFunction = (input: string) => {
+  return input
+}
+
 const App = () => {
 
-  return <NavBar optionsArray={optionsArray}  option = "horizontal"  orientation = "ltr" theme="slategrey" search = "search"/>
-  
-  
-  
+  return (
+    <div>
+      <BrowserRouter>
+
+      <NavBar optionsArray={optionsArray}  option = "horizontal"  orientation = "ltr" theme="slategrey" search = "search" searchFunction={searchFunction}/>
+
+      <Switch>
+          <Route exact path="/about" component={About} />
+          <Route path="/consulting" component={Consulting}/>
+          <Route path="/projects" component = {Projects} />
+          <Route path="/ventures" component = {Ventures} />
+          <Route path="/info" component = {Info} />
+          <Route path="/help" component = {Help} />
+      </Switch>
+
+      </BrowserRouter>
+    </div>
+
+  )
 
 }
 
