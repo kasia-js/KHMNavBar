@@ -9,12 +9,10 @@ React Library Component ready to download and npm install.
 - [Jest](https://jestjs.io/)
 
 ## Developers:
-The initial project was developed in JavaScript by:
-- Rashmi Menon Vellekkat - [GitHub](https://github.com/RashmiBalaji) - [LinkedIn](https://www.linkedin.com/in/rashmi-menon-vellekkat-96bb88118/)
-
 
 It was then refactored to TypeScript and tested by:
 - Katarzyna Kolny - [GitHub](https://github.com/kasia-js) - [LinkedIn](https://www.linkedin.com/in/katarzyna-kolny-8b3384b9/)
 - Mo Wong - [GitHub](https://github.com/ommwong) - [LinkedIn](https://www.linkedin.com/in/mowong1/)
 - Hamed Sedighi - [GitHub](https://github.com/herol3oy) - [LinkedIn](https://www.linkedin.com/in/hamed-sedighi/)
+- Rashmi Menon Vellekkat - [GitHub](https://github.com/RashmiBalaji) - [LinkedIn](https://www.linkedin.com/in/rashmi-menon-vellekkat-96bb88118/)
 
