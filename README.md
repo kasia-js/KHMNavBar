@@ -72,9 +72,9 @@ return (
 
 |     **Value**         | **Type** | **Required** |     **Default**     |                **Options**                |
 | :-------------------: | :------: | :----------: | :-----------------: | :---------------------------------------: |
-|     **option**        |  String  |   Optional   |      horizontal     |                 vertical                  |
-|     **orientation**   |  String  |   Optional   |        ltr          |                   rtl                     |
-|     **theme**         |  String  |   Optional   |        none         |      `blue`/`gold`/`white`/`black`        |
+|     **option**        |  String  |   Optional   |      horizontal     |                 `vertical`                |
+|     **orientation**   |  String  |   Optional   |        ltr          |                   `rtl`                   |
+|     **theme**         |  String  |   Optional   |        none         |      any HTML color code                  |
 
 
 
