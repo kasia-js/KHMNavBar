@@ -77,7 +77,7 @@ return (
 |     **theme**         |  String  |   Optional   |        none         |      any HTML color code                  |
 
 
-
+** `ltr` orientation is left-to-right; `rtl` orientation is right-to-left
 
 ## Author
 Rashmi Menon Vellekkat - [GitHub](https://github.com/RashmiBalaji) - [LinkedIn](https://www.linkedin.com/in/rashmi-menon-vellekkat-96bb88118/)
