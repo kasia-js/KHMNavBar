@@ -67,6 +67,18 @@ return (
   )
 ```
 
+### Style configuration
+
+
+|     **Value**         | **Type** | **Required** |     **Default**     |                **Options**                |
+| :-------------------: | :------: | :----------: | :-----------------: | :---------------------------------------: |
+|     **option**        |  String  |   Optional   |      horizontal     |                 vertical                  |
+|     **orientation**   |  String  |   Optional   |        ltr          |                   rtl                     |
+|     **theme**         |  String  |   Optional   |        none         |      `blue`/`gold`/`white`/`black`        |
+
+
+
+
 ## Author
 Rashmi Menon Vellekkat - [GitHub](https://github.com/RashmiBalaji) - [LinkedIn](https://www.linkedin.com/in/rashmi-menon-vellekkat-96bb88118/)
 
