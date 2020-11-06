@@ -79,10 +79,8 @@ return (
 
 ** `ltr` orientation is left-to-right; `rtl` orientation is right-to-left
 
-## Author
-Rashmi Menon Vellekkat - [GitHub](https://github.com/RashmiBalaji) - [LinkedIn](https://www.linkedin.com/in/rashmi-menon-vellekkat-96bb88118/)
-
-## Contributors
+## Authors
+- Rashmi Menon Vellekkat - [GitHub](https://github.com/RashmiBalaji) - [LinkedIn](https://www.linkedin.com/in/rashmi-menon-vellekkat-96bb88118/)
 - Katarzyna Kolny - [GitHub](https://github.com/kasia-js) - [LinkedIn](https://www.linkedin.com/in/katarzyna-kolny-8b3384b9/)
 - Mo Wong - [GitHub](https://github.com/ommwong) - [LinkedIn](https://www.linkedin.com/in/mowong1/)
 - Hamed Sedighi - [GitHub](https://github.com/herol3oy) - [LinkedIn](https://www.linkedin.com/in/hamed-sedighi/)
